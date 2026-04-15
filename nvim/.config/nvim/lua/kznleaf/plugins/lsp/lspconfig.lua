@@ -95,7 +95,6 @@ return {
 
 		vim.lsp.config("gopls", {
 			install = {
-				-- 如果你用 Mason 自动安装
 				executable = { "gopls" },
 			},
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },

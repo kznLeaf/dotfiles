@@ -10,13 +10,15 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- only close current split window, Keep the original window
 
-local function search_in_visible_lines()
-	local scrolloff = vim.o.scrolloff
-	vim.o.scrolloff = 0
-	vim.cmd.norm(vim.api.nvim_replace_termcodes("VHoL<Esc>", true, true, true))
-	vim.o.scrolloff = scrolloff
-	vim.cmd.norm("``")
-	vim.fn.feedkeys("/\\%V")
-end
+-- local function search_in_visible_lines()
+-- 	local scrolloff = vim.o.scrolloff
+-- 	vim.o.scrolloff = 0
+-- 	vim.cmd.norm(vim.api.nvim_replace_termcodes("VHoL<Esc>", true, true, true))
+-- 	vim.o.scrolloff = scrolloff
+-- 	vim.cmd.norm("``")
+-- 	vim.fn.feedkeys("/\\%V")
+-- end
 
-vim.keymap.set("n", "z/", search_in_visible_lines)
+vim.keymap.set("n", "z/", function()
+	require("kznleaf.utils.visible-search").search()
+end, { desc = "Fuzzy search visible lines" })
