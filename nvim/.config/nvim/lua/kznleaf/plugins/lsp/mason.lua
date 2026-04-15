@@ -34,6 +34,7 @@ return {
 				"pyright",
 				"gopls",
 				"yamlls",
+				"rust_analyzer", -- or use rustaceanvim
 			},
 		})
 
