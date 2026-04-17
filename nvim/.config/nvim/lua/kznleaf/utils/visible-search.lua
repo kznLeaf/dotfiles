@@ -88,6 +88,7 @@ function M.search()
 
 			local target_col = matched_positions[1][1]
 
+			vim.cmd("normal! m'") -- 将当前光标的位置记录下来, 以便利用C-o进行跳转
 			vim.api.nvim_win_set_cursor(0, { target_row, target_col })
 
 			-- vim.fn.histadd("search", input)
