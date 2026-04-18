@@ -7,14 +7,8 @@ return {
 		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
-		local mason_lspconfig = require("mason-lspconfig")
-
 		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap -- for conciseness
 
@@ -97,18 +91,21 @@ return {
 			install = {
 				executable = { "gopls" },
 			},
-			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			filetypes = { "go", "gomod" },
 			root_patterns = { "go.work", "go.mod", ".git" },
 			settings = {
 				gopls = {
 					completeUnimported = true,
 					-- usePlaceholders = true,
 					analyses = {
+						nilness = true,
 						unusedparams = true,
 						unusedwrite = true,
 						unusedvariable = true,
+						useany = true,
 					},
 					staticcheck = true,
+					-- semanticTokens = true,
 				},
 			},
 		})
