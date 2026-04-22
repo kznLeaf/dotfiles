@@ -1,8 +1,8 @@
 vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/tpope/vim-fugitive", -- mainly used for diff
+	-- "https://github.com/tpope/vim-fugitive", -- mainly used for diff
 })
-vim.keymap.set("n", "<leader>hd", "<cmd>Gitvdiffsplit<CR>", { desc = "Open git diff" }) -- Don't work for some reason...
+-- vim.keymap.set("n", "<leader>hd", "<cmd>Gitvdiffsplit<CR>", { desc = "Open git diff" }) -- Don't work for some reason...
 require("gitsigns").setup({
 	on_attach = function(bufnr)
 		local gs = require("gitsigns")
@@ -51,7 +51,7 @@ require("gitsigns").setup({
 		map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
 		map("n", "<leader>tw", gs.toggle_word_diff, "Toggle word diff")
 
-		-- map("n", "<leader>hd", gs.diffthis, "Diff this")
+		map("n", "<leader>hd", gs.diffthis, "Diff this")
 		map("n", "<leader>hD", function()
 			gs.diffthis("~")
 		end, "Diff this ~")

@@ -1,7 +1,21 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-vim.opt.diffopt:append("linematch:60")
+
+vim.opt.fillchars = {
+	diff = "╱",
+}
+vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#565f89", bg = "none" })
+
+vim.opt.diffopt = {
+	"internal",
+	"filler",
+	"closeoff",
+	"context:12",
+	"algorithm:histogram",
+	"linematch:200",
+	"indent-heuristic",
+}
 
 local opt = vim.opt
 
