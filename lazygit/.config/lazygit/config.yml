@@ -1,0 +1,6 @@
+os:
+  # Command for editing a file. Should contain "{{filename}}".
+  edit: "[ -z \"$NVIM\" ] && (nvim -- {{filename}}) || (nvim --server $NVIM --remote-send '<cmd>close<cr><cmd>lua EditFromLazygit({{filename}})<CR>')"
+  # Command for editing a file at a given line number. Should contain
+  # "{{filename}}", and may optionally contain "{{line}}".
+  editAtLine: "[ -z \"$NVIM\" ] && (nvim +{{line}} -- {{filename}}) || nvim --server $NVIM --remote-send '<cmd>close<CR><cmd>lua EditLineFromLazygit({{filename}},{{line}})<CR>'"
