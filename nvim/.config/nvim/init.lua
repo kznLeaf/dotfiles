@@ -1,2 +1,1 @@
-require("kznleaf.core")
-require("kznleaf.lazy")
+require("config")
