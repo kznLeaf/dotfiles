@@ -8,9 +8,9 @@ local function mode()
 	local mode_map = {
 		n = "(^◡^)", -- Normal mode
 		i = "(ﾉ>ω<)ﾉ", -- Insert mode
-		v = "<(✪ω✪)>", -- Visual mode
-		[""] = "<(✪ω✪)>", -- Visual block mode
-		V = "<(✪ω✪)>", -- Visual line mode
+		v = "(✪ω✪)", -- Visual mode
+		[""] = "(✪ω✪)", -- Visual block mode
+		V = "(✪ω✪)", -- Visual line mode
 		c = "COMMAND", -- Command-line mode
 		no = "(¬_¬)", -- NInsert mode
 		t = "d(=_=)b", -- Terminal mode

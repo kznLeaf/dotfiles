@@ -10,10 +10,10 @@ vim.keymap.set("n", "<Esc><Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search 
 -- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>w", "<cmd>close<CR>", { desc = "Command 'close'" }) -- only close current split window, Keep the original window
 
-----------------------autocmds-------------------------
+-----------------------------autocmds------------------------------
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
 	desc = "Hightlight selection on yank",
 	pattern = "*",
 	callback = function()
