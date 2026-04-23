@@ -41,3 +41,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 		pcall(vim.treesitter.start, bufnr)
 	end,
 })
+
+-- See https://github.com/nvim-treesitter/nvim-treesitter#highlighting
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "<filetype>" },
+	callback = function()
+		vim.treesitter.start()
+	end,
+})

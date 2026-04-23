@@ -23,7 +23,6 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"gopls",
 		"yamlls",
-		-- "rust_analyzer", -- or use rustaceanvim
 	},
 })
 
@@ -34,7 +33,6 @@ require("mason-tool-installer").setup({
 		"isort",
 		"black",
 		"taplo",
-		-- "biome",
 		"eslint_d",
 	},
 })
