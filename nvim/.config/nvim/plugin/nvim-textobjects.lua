@@ -1,5 +1,8 @@
 vim.pack.add({
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+		version = "main",
+	},
 })
 
 -- Disable entire built-in ftplugin mappings to avoid conflicts.

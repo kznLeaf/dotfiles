@@ -16,10 +16,6 @@ require("mason").setup({ -- setup is required
 })
 
 require("mason-lspconfig").setup({
-	-- -- automatic_enable = false,
-	-- automatic_setup = false,
-	-- automatic_installation = false,
-	-- handlers = nil,
 	ensure_installed = {
 		"html",
 		"cssls",
@@ -27,7 +23,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"gopls",
 		"yamlls",
-		"rust_analyzer", -- or use rustaceanvim
+		-- "rust_analyzer", -- or use rustaceanvim
 	},
 })
 
