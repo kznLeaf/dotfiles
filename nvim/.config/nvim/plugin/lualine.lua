@@ -11,7 +11,7 @@ local function mode()
 		v = "<(✪ω✪)>", -- Visual mode
 		[""] = "<(✪ω✪)>", -- Visual block mode
 		V = "<(✪ω✪)>", -- Visual line mode
-		c = "ψ(｀∇´)ψ", -- Command-line mode
+		c = "COMMAND", -- Command-line mode
 		no = "(¬_¬)", -- NInsert mode
 		t = "d(=_=)b", -- Terminal mode
 
