@@ -67,6 +67,5 @@ vim.keymap.set("n", "<leader>en", function()
 end)
 
 -- vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope find git files" })
--- vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope LSP references" })
 -- vim.keymap.set("n", "<leader>sc", builtin.colorscheme, { desc = "Telescope Switch colorscheme" })
 -- vim.keymap.set("n", "<leader>fc", ":Telescope neoclip<CR>", { desc = "Telescope clipboard" })
