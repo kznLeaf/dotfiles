@@ -9,12 +9,12 @@ local state = {
 
 local function create_floating_window(opts)
 	opts = opts or {}
-	local width = opts.width or math.floor(vim.o.columns * 0.8)
-	local height = opts.height or math.floor(vim.o.lines * 0.8)
+	local width = opts.width or math.ceil(math.min(vim.o.columns, math.max(80, vim.o.columns - 20)))
+	local height = opts.height or math.ceil(math.min(vim.o.lines, math.max(20, vim.o.lines - 10)))
 
 	-- Calculate the position to center the window
-	local col = math.floor((vim.o.columns - width) / 2)
-	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.ceil(vim.o.columns - width) * 0.5 - 1
+	local row = math.ceil(vim.o.lines - height) * 0.5 - 1
 
 	-- Create a buffer
 	local buf = nil
@@ -32,11 +32,17 @@ local function create_floating_window(opts)
 		col = col,
 		row = row,
 		style = "minimal", -- No borders or extra UI elements
-		border = "rounded",
+		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	}
 
 	-- Create the floating window
 	local win = vim.api.nvim_open_win(buf, true, win_config)
+
+	vim.api.nvim_set_option_value(
+		"winhighlight",
+		"FloatBorder:Normal,NormalFloat:Normal",
+		{ win = win, scope = "local" }
+	)
 
 	return { buf = buf, win = win }
 end
