@@ -2,7 +2,7 @@ vim.pack.add({ "https://github.com/goolord/alpha-nvim" })
 
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
-
+local total_plugins = #vim.pack.get(nil, { info = false })
 local datetime = tonumber(os.date(" %H "))
 -- Set header
 dashboard.section.header.val = {
@@ -31,7 +31,7 @@ local function footer()
 	local version = vim.version()
 	local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
 	-- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-	local value = footer_datetime .. nvim_version_info
+	local value = footer_datetime .. "  Plugins " .. total_plugins .. nvim_version_info
 	return value
 end
 
