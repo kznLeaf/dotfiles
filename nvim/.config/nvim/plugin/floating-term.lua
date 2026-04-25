@@ -7,6 +7,7 @@ local state = {
 	},
 }
 
+-- FIXME: 关闭终端窗口后，zsh仍然占用buffer
 local function create_floating_window(opts)
 	opts = opts or {}
 	local width = opts.width or math.ceil(math.min(vim.o.columns, math.max(80, vim.o.columns - 20)))
