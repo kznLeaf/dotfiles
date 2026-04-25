@@ -14,10 +14,6 @@ local cl = function()
 	end
 end
 
--- window management
--- vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
--- vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
--- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>w", cl, { desc = "Command 'close'" }) -- only close current split window, Keep the original window
 
 -----------------------------autocmds------------------------------
