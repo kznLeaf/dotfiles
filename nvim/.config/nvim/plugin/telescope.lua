@@ -48,7 +48,6 @@ vim.keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string und
 vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Lists items in the quickfix list" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fg", builtin.current_buffer_fuzzy_find, { desc = "Telescope file fuzzy finder" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 
 -- This keymap can be used to navigate
 vim.keymap.set("n", "<leader>b", function()
