@@ -9,3 +9,5 @@ colorscheme gotham
 
 let g:mapleader = ' '
 nnoremap <leader>hd :Gvdiffsplit<CR>
+set fillchars=diff:╱
+

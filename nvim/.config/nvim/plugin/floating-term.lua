@@ -7,7 +7,6 @@ local state = {
 	},
 }
 
--- FIXME: 关闭终端窗口后，zsh仍然占用buffer
 local function create_floating_window(opts)
 	opts = opts or {}
 	local width = opts.width or math.ceil(math.min(vim.o.columns, math.max(80, vim.o.columns - 20)))
@@ -48,19 +47,28 @@ local function create_floating_window(opts)
 	return { buf = buf, win = win }
 end
 
+local find_exist_term = function()
+	local bufs = vim.api.nvim_list_bufs()
+	for _, bufnr in ipairs(bufs) do
+		local name = vim.api.nvim_buf_get_name(bufnr)
+		if name:match("^term://") then
+			state.floating.buf = bufnr
+		end
+	end
+end
+
 local toggle_terminal = function()
+	find_exist_term()
 	if not vim.api.nvim_win_is_valid(state.floating.win) then
 		state.floating = create_floating_window({ buf = state.floating.buf })
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
 		end
+		vim.cmd("startinsert")
 	else
 		-- if the term has been open, then close
-		vim.api.nvim_win_hide(state.floating.win)
+		vim.api.nvim_win_close(state.floating.win, true)
 	end
-	vim.cmd("normal i")
 end
-
--- vim.api.nvim_create_user_command("Ft", toggle_terminal, {})
 
 vim.keymap.set({ "n", "t" }, "<C-t>", toggle_terminal, { desc = "Toggle terminal" })

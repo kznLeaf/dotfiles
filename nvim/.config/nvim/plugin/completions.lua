@@ -13,12 +13,11 @@ local start = function()
 		-- C-n/C-p or Up/Down: Select next/previous item
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		-- Tab/S-Tab: Jumps to the next/previous snippet placeholder
+		-- C-y; select and accept
 		keymap = {
 			preset = "default",
 			-- because C-space will conflict with switching input methods...
 			["<C-g>"] = { "show", "show_documentation", "hide_documentation" },
-			-- press 'Enter' to select and accept
-			["<CR>"] = { "select_and_accept", "fallback" },
 		},
 		completion = {
 			documentation = {
